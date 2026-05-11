@@ -59,7 +59,7 @@ export function Background() {
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 w-full h-full hidden md:block"
+        className="absolute inset-0 w-full h-full"
         style={{ opacity: underwaterOpacity }}
       >
         <div className="relative w-full h-full">
@@ -97,7 +97,7 @@ export function Background() {
         </div>
       </motion.div>
 
-      <motion.div style={{ opacity: surfaceOpacity }} className="absolute inset-0 pointer-events-none z-30 overflow-hidden hidden md:block">
+      <motion.div style={{ opacity: surfaceOpacity }} className="absolute inset-0 pointer-events-none z-30 overflow-hidden">
         {particles.map((p) => (
           <motion.div
             key={p.id}
