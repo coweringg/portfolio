@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { MagneticButton } from "./MagneticButton";
-import { Download, ChevronDown, ArrowRight, Building2, Scale, Code2 } from "lucide-react";
+import { Download, ChevronDown, ArrowRight, Building2, Scale, Code2, ShieldCheck, Zap, Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
 
@@ -81,24 +81,49 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 0.48, ease: "easeOut" }}
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: true }}
+           variants={{
+             hidden: { opacity: 0 },
+             visible: {
+               opacity: 1,
+               transition: { staggerChildren: 0.1, delayChildren: 0.4 }
+             }
+           }}
            className="mt-4 sm:mt-6 grid grid-cols-3 gap-1.5 sm:gap-3 w-full max-w-3xl px-0 sm:px-4"
         >
-          {th.proof.map((item) => (
-            <div
-              key={item.value}
-              className="rounded-lg border border-white/12 bg-slate-100/5.5 px-1.5 py-2 sm:px-4 sm:py-3 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
-            >
-              <div className="text-[8px] sm:text-xs font-bold uppercase tracking-[0.08em] sm:tracking-[0.18em] text-white">
-                {item.value}
-              </div>
-              <div className="mt-1 text-[7px] sm:text-[10px] leading-snug sm:leading-relaxed text-white/55">
-                {item.label}
-              </div>
-            </div>
-          ))}
+          {th.proof.map((item, idx) => {
+            const icons = [ShieldCheck, Zap, Globe];
+            const Icon = icons[idx];
+            return (
+              <motion.div
+                key={item.value}
+                variants={{
+                  hidden: { opacity: 0, y: 15 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { duration: 0.5, ease: "easeOut" }
+                  }
+                }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  borderColor: "rgba(255, 255, 255, 0.2)"
+                }}
+                className="rounded-lg border border-white/12 bg-slate-100/5.5 px-1.5 py-2 sm:px-4 sm:py-3 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition-colors duration-300"
+              >
+                <div className={`flex items-center justify-center gap-2 mb-2 ${idx === 0 ? "text-emerald-300" : idx === 1 ? "text-amber-300" : "text-violet-300"}`}>
+                  <Icon className="w-3.5 h-3.5" />
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold">{item.value}</span>
+                </div>
+                <div className="text-[7px] sm:text-[10px] leading-snug sm:leading-relaxed text-white/55 text-center">
+                  {item.label}
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div
@@ -108,18 +133,18 @@ export function Hero() {
            className="mt-5 sm:mt-7 hidden sm:flex flex-wrap justify-center gap-2.5 sm:gap-3 px-2 sm:px-4 max-w-3xl"
         >
           <div className="flex items-center gap-2 px-4 py-2 bg-slate-100/5.5 border border-white/12 backdrop-blur-xl rounded-full text-white/80">
-            <Building2 className="w-3.5 h-3.5 text-ocean-light" />
+            <Building2 className="w-3.5 h-3.5 text-sky-400" />
             <span className="text-[10px] font-medium tracking-wide">{th.pills.production}</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 bg-slate-100/5.5 border border-white/12 backdrop-blur-xl rounded-full text-white/80">
-            <Scale className="w-3.5 h-3.5 accent-reef" />
+            <Scale className="w-3.5 h-3.5 text-rose-400" />
             <span className="text-[10px] font-medium tracking-wide">{th.pills.legaltech}</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-1.5 bg-slate-100/5.5 border border-white/12 backdrop-blur-xl rounded-full text-white/80">
-            <Code2 className="w-3.5 h-3.5 accent-violet" />
+            <Code2 className="w-3.5 h-3.5 text-white" />
             <div className="flex flex-col leading-[1.2]">
-              <span className="text-[9px] font-bold text-ocean-light">{th.pills.stkTop}</span>
-              <span className="text-[9px] font-medium">{th.pills.stkBot}</span>
+              <span className="text-[9px] font-bold text-white tracking-wide">{th.pills.stkTop}</span>
+              <span className="text-[9px] font-medium text-white/70">{th.pills.stkBot}</span>
             </div>
           </div>
           <div className="flex items-center gap-2 px-4 py-1.5 bg-slate-100/5.5 border border-white/12 backdrop-blur-xl rounded-full">

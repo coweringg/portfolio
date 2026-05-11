@@ -32,21 +32,45 @@ export function Contact() {
             {tc.p}
           </p>
 
-          <div className="grid md:grid-cols-3 gap-3 max-w-3xl mx-auto mb-8 sm:mb-10">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15, delayChildren: 0.3 }
+              }
+            }}
+            className="grid md:grid-cols-3 gap-3 max-w-3xl mx-auto mb-8 sm:mb-10"
+          >
             {tc.availability.map((item, idx) => {
               const Icon = availabilityIcons[idx];
 
               return (
-                <div key={item.title} className="glass-panel rounded-lg p-4 text-left">
-                  <div className={`flex items-center gap-2 mb-2 ${idx === 0 ? "text-emerald-200" : idx === 1 ? "text-ocean-light" : "text-violet-200"}`}>
+                <motion.div 
+                  key={item.title} 
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  whileHover={{ 
+                    y: -5,
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    borderColor: "rgba(255, 255, 255, 0.15)"
+                  }}
+                  className="glass-panel rounded-lg p-4 text-left transition-colors duration-300"
+                >
+                  <div className={`flex items-center gap-2 mb-2 ${idx === 0 ? "text-emerald-300" : idx === 1 ? "text-amber-300" : "text-violet-300"}`}>
                     <Icon className="w-4 h-4" />
                     <span className="text-[10px] uppercase tracking-[0.2em] font-bold">{item.title}</span>
                   </div>
-                  <p className="text-sm text-white/75">{item.text}</p>
-                </div>
+                  <p className="text-sm text-white/75 leading-relaxed">{item.text}</p>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a 
