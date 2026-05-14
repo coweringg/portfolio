@@ -85,6 +85,7 @@ export function Background() {
             muted
             playsInline
             preload="metadata"
+            poster="/underwater.png"
           >
             <source src="/underwater.mp4" type="video/mp4" />
           </motion.video>
@@ -104,6 +105,7 @@ export function Background() {
             muted
             playsInline
             preload="metadata"
+            poster="/surface.png"
           >
             <source src="/surface.mp4" type="video/mp4" />
           </video>

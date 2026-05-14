@@ -249,6 +249,7 @@ export function StatsDashboard() {
                 <img 
                   src={stats.spotify.albumArt} 
                   alt="Album Art" 
+                  loading="lazy"
                   className={`w-16 h-16 sm:w-20 sm:h-20 rounded-md shadow-lg border border-white/10 ${!stats.spotify.active ? 'grayscale opacity-50' : ''}`}
                 />
                 {stats.spotify.active && (
