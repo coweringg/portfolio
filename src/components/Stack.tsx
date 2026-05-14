@@ -24,7 +24,7 @@ export function Stack() {
   useSectionNarrator("stack");
 
   return (
-    <section id="stack" className="relative py-20 md:py-32 px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen">
+    <section id="stack" className="relative py-20 md:py-32 px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen section-divider">
       <div className="max-w-6xl mx-auto z-10 relative">
         <div className="text-center mb-10 sm:mb-16 md:mb-20">
           <motion.h2

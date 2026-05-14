@@ -207,8 +207,8 @@ export function StatsDashboard() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-16 mb-4 px-4">
-      <div className="flex items-center gap-3 mb-16 justify-center">
+    <div className="w-full max-w-4xl mx-auto mt-2 mb-2 px-4">
+      <div className="flex items-center gap-3 mb-4 justify-center">
         <div className="h-px flex-1 bg-linear-to-r from-transparent via-white/10 to-transparent" />
         <h3 className="text-[10px] uppercase tracking-[0.4em] font-black text-white/30 italic">{ts.contact.statsTitle}</h3>
         <div className="h-px flex-1 bg-linear-to-l from-transparent via-white/10 to-transparent" />

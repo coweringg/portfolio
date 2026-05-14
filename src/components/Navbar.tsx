@@ -10,6 +10,28 @@ export function Navbar({ onTerminalClick }: { onTerminalClick: () => void }) {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
+  const [progressThreshold, setProgressThreshold] = useState(0.95);
+
+  useEffect(() => {
+    const calculateThreshold = () => {
+      const contact = document.getElementById('contact');
+      if (contact) {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const threshold = (contact.offsetTop - 80) / totalHeight;
+        setProgressThreshold(Math.min(0.999, threshold));
+      }
+    };
+
+    calculateThreshold();
+    const timer = setTimeout(calculateThreshold, 1000);
+    window.addEventListener('resize', calculateThreshold);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', calculateThreshold);
+    };
+  }, [language]);
+
+  const scaleX = useTransform(scrollYProgress, [0, progressThreshold], [0, 1]);
 
   const links = [
     { id: "home", name: t[language].nav.home, href: "#home" },
@@ -205,8 +227,8 @@ export function Navbar({ onTerminalClick }: { onTerminalClick: () => void }) {
       )}
 
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-ocean-glow shadow-[0_0_8px_#0ea5e9,0_0_12px_#38bdf8]"
-        style={{ scaleX: scrollYProgress, transformOrigin: "0% 50%" }}
+        className="absolute -bottom-px left-0 right-0 h-[2px] bg-ocean-glow shadow-[0_0_8px_#0ea5e9,0_0_12px_#38bdf8] z-50"
+        style={{ scaleX, transformOrigin: "0% 50%" }}
       />
     </motion.nav>
   );

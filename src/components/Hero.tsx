@@ -10,7 +10,7 @@ export function Hero() {
   const th = t[language].hero;
   useSectionNarrator("hero", "home");
   return (
-    <section id="home" className="relative min-h-[92dvh] sm:min-h-dvh flex flex-col items-center justify-center pt-14 sm:pt-20 px-4 sm:px-6 overflow-hidden">
+    <section id="home" className="relative min-h-[92dvh] sm:min-h-dvh flex flex-col items-center justify-center pt-14 sm:pt-20 px-4 sm:px-6 overflow-hidden section-divider border-t-0">
       
       <div className="flex flex-col items-center text-center z-10 max-w-5xl mx-auto mt-1 sm:mt-10 pb-10 sm:pb-32">
         

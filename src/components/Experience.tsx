@@ -9,7 +9,7 @@ export function Experience() {
   const te = t[language].experience;
   useSectionNarrator("experience");
   return (
-    <section id="experience" className="relative py-20 md:py-32 px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen">
+    <section id="experience" className="relative py-20 md:py-32 px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen section-divider">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-normal mb-10 sm:mb-14 md:mb-16 text-center">
           {te.title1} <span className="font-serif text-ocean-light italic font-normal">{te.title2}</span>
