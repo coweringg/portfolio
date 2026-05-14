@@ -2,10 +2,12 @@ import { motion } from "motion/react";
 import { BrainCircuit, Layers3, ShieldCheck, Rocket, Sparkles, Zap, User } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
+import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
 export function About() {
   const { language } = useLanguage();
   const ta = t[language].about;
+  useSectionNarrator("about");
   const focusIcons = [Layers3, BrainCircuit, Rocket];
 
   return (

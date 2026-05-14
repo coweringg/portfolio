@@ -2,10 +2,12 @@ import { motion } from "motion/react";
 import { Mail, MapPin, Radio, Target } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
+import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
 export function Contact() {
   const { language } = useLanguage();
   const tc = t[language].contact;
+  useSectionNarrator("contact");
   const availabilityIcons = [Radio, MapPin, Target];
 
   return (

@@ -2,10 +2,12 @@ import { motion } from "motion/react";
 import { CheckCircle2, CircleDot } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
+import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
 export function Experience() {
   const { language } = useLanguage();
   const te = t[language].experience;
+  useSectionNarrator("experience");
   return (
     <section id="experience" className="relative py-20 md:py-32 px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen">
       <div className="max-w-4xl mx-auto">

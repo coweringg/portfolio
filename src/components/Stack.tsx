@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { BadgeCheck, Code2, Compass } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
+import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
 type Level = "production" | "project" | "upcoming";
 
@@ -20,6 +21,7 @@ const levelIcons: Record<Level, typeof BadgeCheck> = {
 export function Stack() {
   const { language } = useLanguage();
   const ts = t[language].stack;
+  useSectionNarrator("stack");
 
   return (
     <section id="stack" className="relative py-20 md:py-32 px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen">

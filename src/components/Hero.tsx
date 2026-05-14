@@ -3,10 +3,12 @@ import { MagneticButton } from "./MagneticButton";
 import { Download, ChevronDown, ArrowRight, Building2, Scale, Code2, ShieldCheck, Zap, Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
+import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
 export function Hero() {
   const { language } = useLanguage();
   const th = t[language].hero;
+  useSectionNarrator("hero", "home");
   return (
     <section id="home" className="relative min-h-[92dvh] sm:min-h-dvh flex flex-col items-center justify-center pt-14 sm:pt-20 px-4 sm:px-6 overflow-hidden">
       

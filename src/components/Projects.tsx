@@ -17,6 +17,7 @@ import {
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
+import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
 type Project = {
   title: string;
@@ -287,6 +288,7 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
 export function Projects() {
   const { language } = useLanguage();
   const tp = t[language].projects;
+  useSectionNarrator("projects");
 
   return (
     <section id="projects" className="relative py-16 md:py-28 px-4 sm:px-6 section-surface section-divider">

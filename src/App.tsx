@@ -8,26 +8,31 @@ import { Experience } from "./components/Experience";
 import { Contact } from "./components/Contact";
 import { Cursor } from "./components/Cursor";
 import { Sidebars } from "./components/Sidebars";
+import { NarratorWidget } from "./components/NarratorWidget";
 import { LanguageProvider } from "./context/LanguageContext";
+import { NarratorProvider } from "./context/NarratorContext";
 
 export default function App() {
   return (
     <LanguageProvider>
-      <div className="relative text-white selection:bg-ocean-light/30 selection:text-ocean-light">
-        <Cursor />
-        <Background />
-        <Navbar />
-        <Sidebars />
-        
-        <main>
-          <Hero />
-          <About />
-          <Stack />
-          <Projects />
-          <Experience />
-          <Contact />
-        </main>
-      </div>
+      <NarratorProvider>
+        <div className="relative text-white selection:bg-ocean-light/30 selection:text-ocean-light">
+          <Cursor />
+          <Background />
+          <Navbar />
+          <Sidebars />
+          <NarratorWidget />
+          
+          <main>
+            <Hero />
+            <About />
+            <Stack />
+            <Projects />
+            <Experience />
+            <Contact />
+          </main>
+        </div>
+      </NarratorProvider>
     </LanguageProvider>
   );
 }
