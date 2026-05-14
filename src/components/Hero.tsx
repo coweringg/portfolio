@@ -205,13 +205,19 @@ export function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-white/40 z-20"
+        onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-white/40 z-20 cursor-pointer group hover:text-white/80 transition-colors"
       >
         <span className="text-[9px] uppercase tracking-[0.3em] font-medium">{th.scroll}</span>
-        <ChevronDown className="w-4 h-4 animate-bounce" />
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-4 h-4" />
+        </motion.div>
       </motion.div>
 
       <motion.div

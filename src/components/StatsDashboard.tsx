@@ -1,6 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { GitCommit, Cloud, Music, Github, Wind, Droplets, MapPin } from 'lucide-react';
+import { GitCommit, Cloud, Music, Wind, Droplets, MapPin } from 'lucide-react';
+
+const GithubIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../translations';
 
@@ -45,12 +63,28 @@ export function StatsDashboard() {
         const githubResponse = await fetch('https://api.github.com/users/coweringg/events/public').catch(() => null);
         const githubData = githubResponse ? await githubResponse.json() : [];
         
-        const lastPush = githubData.find((event: any) => 
-          event.type === 'PushEvent' && event.payload.commits && event.payload.commits.length > 0
-        );
+        const lastPush = githubData.find((event: any) => event.type === 'PushEvent');
         
-        const commitMessage = lastPush?.payload?.commits?.[0]?.message || 'Working on projects';
-        const branchName = lastPush?.payload?.ref?.split('/').pop() || 'master';
+        let commitMessage = 'Working on projects';
+        let branchName = 'master';
+        let repoName = 'portfolio';
+        let commitDate = new Date().toISOString();
+
+        if (lastPush) {
+          repoName = lastPush.repo.name.split('/')[1];
+          branchName = lastPush.payload.ref?.split('/').pop() || 'master';
+          commitDate = lastPush.created_at;
+
+          if (lastPush.payload.commits && lastPush.payload.commits.length > 0) {
+            commitMessage = lastPush.payload.commits[lastPush.payload.commits.length - 1].message;
+          } else {
+            const commitResponse = await fetch(`https://api.github.com/repos/${lastPush.repo.name}/commits/${lastPush.payload.head}`).catch(() => null);
+            const commitData = commitResponse ? await commitResponse.json() : null;
+            if (commitData) {
+              commitMessage = commitData.commit.message;
+            }
+          }
+        }
         
         const weatherLang = language === 'ES' ? 'es' : 'en';
         const weatherResponse = await fetch(`https://wttr.in/Montevideo?format=j1&lang=${weatherLang}`).catch(() => null);
@@ -58,12 +92,12 @@ export function StatsDashboard() {
 
         setStats(prev => ({
           ...prev,
-          github: lastPush ? {
-            lastCommit: new Date(lastPush.created_at).toLocaleDateString(language === 'ES' ? 'es-ES' : 'en-US'),
-            repo: lastPush.repo.name.split('/')[1],
+          github: {
+            lastCommit: new Date(commitDate).toLocaleDateString(language === 'ES' ? 'es-ES' : 'en-US'),
+            repo: repoName,
             message: commitMessage,
             branch: branchName
-          } : { lastCommit: language === 'ES' ? 'Hoy' : 'Today', repo: 'portfolio', message: 'feat: implement secret terminal mode', branch: 'master' },
+          },
           weather: weatherData ? {
             temp: parseInt(weatherData.current_condition[0].temp_C),
             condition: language === 'ES' 
@@ -173,21 +207,20 @@ export function StatsDashboard() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto my-12 px-4">
-      <div className="flex items-center gap-3 mb-8 justify-center">
+    <div className="w-full max-w-4xl mx-auto mt-16 mb-4 px-4">
+      <div className="flex items-center gap-3 mb-16 justify-center">
         <div className="h-px flex-1 bg-linear-to-r from-transparent via-white/10 to-transparent" />
         <h3 className="text-[10px] uppercase tracking-[0.4em] font-black text-white/30 italic">{ts.contact.statsTitle}</h3>
         <div className="h-px flex-1 bg-linear-to-l from-transparent via-white/10 to-transparent" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        {/* Spotify Card */}
         <motion.div 
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="lg:col-span-6 glass-panel p-4 rounded-xl border-white/5 relative overflow-hidden group"
+          className="lg:col-span-6 glass-panel p-4 rounded-xl border-white/5 relative overflow-hidden group flex flex-col"
         >
           <div className="flex items-center justify-between mb-4">
              <div className="flex items-center gap-2">
@@ -211,7 +244,7 @@ export function StatsDashboard() {
           </div>
 
           {stats.spotify.song ? (
-            <div className="flex gap-4 items-start">
+            <div className="flex gap-4 items-center flex-1">
               <div className="relative shrink-0">
                 <img 
                   src={stats.spotify.albumArt} 
@@ -225,7 +258,7 @@ export function StatsDashboard() {
                 )}
               </div>
               
-              <div className="flex-1 min-w-0 flex flex-col justify-center h-16 sm:h-20">
+              <div className="flex-1 min-w-0 flex flex-col justify-center">
                 <h4 className={`text-[14px] sm:text-[16px] font-bold text-white leading-tight mb-0.5 drop-shadow-sm truncate ${!stats.spotify.active ? 'text-white/60' : ''}`}>
                   {stats.spotify.song}
                 </h4>
@@ -234,7 +267,7 @@ export function StatsDashboard() {
                 </p>
                 
                 {stats.spotify.active ? (
-                  <div className="space-y-1.5 mt-auto">
+                  <div className="space-y-1.5 mt-2">
                     <div className="flex items-center justify-between text-[9px] font-mono text-white/40">
                       <span>{formatTime(Date.now() - (stats.spotify.start || 0))}</span>
                       <span>{formatTime((stats.spotify.end || 0) - (stats.spotify.start || 0))}</span>
@@ -249,7 +282,7 @@ export function StatsDashboard() {
                     </div>
                   </div>
                 ) : (
-                  <div className="mt-auto">
+                  <div className="mt-2">
                     <span className="text-[9px] text-white/20 uppercase tracking-tighter">Disconnected</span>
                   </div>
                 )}
@@ -264,7 +297,6 @@ export function StatsDashboard() {
           )}
         </motion.div>
 
-        {/* GitHub Card */}
         <motion.div 
           variants={cardVariants}
           initial="hidden"
@@ -274,7 +306,7 @@ export function StatsDashboard() {
           className="lg:col-span-3 glass-panel p-4 rounded-xl border-white/5 flex flex-col group overflow-hidden"
         >
           <div className="flex items-center justify-between mb-4">
-            <Github className="w-4 h-4 text-white/40" />
+            <GithubIcon className="w-4 h-4 text-white/40" />
             <span className="text-[8px] uppercase tracking-widest text-white/30 font-bold">GitHub</span>
           </div>
           <div className="flex-1 flex flex-col justify-center">
@@ -287,8 +319,8 @@ export function StatsDashboard() {
                 <span>{stats.github.branch}</span>
               </div>
             </div>
-            <div className="p-2 rounded bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors overflow-hidden">
-              <p className="text-[10px] text-white/80 italic leading-snug text-wrap-break-word line-clamp-3">
+            <div className="p-2 rounded bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors">
+              <p className="text-[10px] text-white/80 italic leading-snug wrap-break-word line-clamp-5">
                 "{stats.github.message}"
               </p>
             </div>
@@ -298,7 +330,6 @@ export function StatsDashboard() {
           </div>
         </motion.div>
 
-        {/* Weather Card */}
         <motion.div 
           variants={cardVariants}
           initial="hidden"

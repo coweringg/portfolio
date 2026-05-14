@@ -53,7 +53,7 @@ export function Contact() {
 
               return (
                 <motion.div 
-                  key={item.title} 
+                  key={idx} 
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 }
@@ -100,7 +100,7 @@ export function Contact() {
            whileInView={{ opacity: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.4, duration: 1 }}
-           className="mt-20 md:mt-24 flex flex-col items-center justify-center pt-8 border-t border-white/10"
+           className="mt-12 md:mt-16 flex flex-col items-center justify-center pt-8 border-t border-white/10"
         >
            <div className="text-white/40 text-sm font-light text-center">
              &copy; {new Date().getFullYear()} {tc.copyright}
