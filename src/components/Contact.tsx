@@ -3,6 +3,7 @@ import { Mail, MapPin, Radio, Target } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
 import { useSectionNarrator } from "../hooks/useSectionNarrator";
+import { StatsDashboard } from "./StatsDashboard";
 
 export function Contact() {
   const { language } = useLanguage();
@@ -91,6 +92,8 @@ export function Contact() {
             </a>
           </div>
         </motion.div>
+
+        <StatsDashboard />
 
         <motion.div 
            initial={{ opacity: 1 }}

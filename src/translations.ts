@@ -206,6 +206,7 @@ export const t = {
       emailLabel: "Email",
       cvLabel: "Download CV",
       sayHello: "Contact for Opportunities",
+      statsTitle: "Live Dashboard",
       copyright: "Gonzalo Mendez · Based in Montevideo, Uruguay",
     },
     sidebars: {
@@ -440,6 +441,7 @@ export const t = {
       emailLabel: "Email",
       cvLabel: "Descargar CV",
       sayHello: "Contactar por oportunidades",
+      statsTitle: "Dashboard en Vivo",
       copyright: "Gonzalo Mendez · Basado en Montevideo, Uruguay",
     },
     sidebars: {
