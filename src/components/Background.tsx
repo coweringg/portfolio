@@ -8,15 +8,16 @@ export function Background() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6;
+      videoRef.current.playbackRate = 0.85;
     }
     
     const el = document.getElementById("stack");
     if (el) setStackOffset(el.offsetTop);
   }, []);
 
-  const surfaceOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const underwaterOpacity = useTransform(scrollY, [0, 400], [0, 1]);
+  const surfaceOpacity = useTransform(scrollY, [500, 800], [1, 0]);
+  const underwaterOpacity = useTransform(scrollY, [500, 800], [0, 1]);
+  const divingDarkness = useTransform(scrollY, [0, 200, 500], [0, 0.2, 0.7]);
   
   const overlayOpacity = useTransform(
     scrollYProgress, 
@@ -99,17 +100,20 @@ export function Background() {
         <div className="relative w-full h-full opacity-85">
           <video
             ref={videoRef}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover pointer-events-none saturate-110 contrast-110"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover pointer-events-none brightness-[1.15]"
             autoPlay
             loop
             muted
             playsInline
             preload="metadata"
-            poster="/surface.png"
           >
             <source src="/surface.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-linear-to-b from-ocean-950/28 via-ocean-950/20 to-ocean-950/76 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-ocean-950/20 via-transparent to-ocean-950/80"></div>
+          <motion.div 
+            className="absolute inset-0 bg-ocean-950 pointer-events-none"
+            style={{ opacity: divingDarkness }}
+          />
         </div>
       </motion.div>
 
