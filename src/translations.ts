@@ -78,7 +78,7 @@ export const t = {
       levels: {
         production: "Production",
         project: "Project",
-        upcoming: "Upcoming Focus",
+        upcoming: "Advanced",
       },
       categories: [
         {
@@ -292,7 +292,7 @@ export const t = {
       levels: {
         production: "Producción",
         project: "Proyecto",
-        upcoming: "Próximo Foco",
+        upcoming: "Avanzado",
       },
       categories: [
         {

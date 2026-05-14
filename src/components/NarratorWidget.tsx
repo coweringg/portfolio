@@ -86,11 +86,13 @@ export function NarratorWidget() {
   };
 
   const handleMainClick = () => {
-    if (!isEnabled) {
-      toggleEnabled();
-      setIsExpanded(true);
+    if (isExpanded) {
+      setIsExpanded(false);
     } else {
-      setIsExpanded((prev) => !prev);
+      if (!isEnabled) {
+        toggleEnabled();
+      }
+      setIsExpanded(true);
     }
   };
 

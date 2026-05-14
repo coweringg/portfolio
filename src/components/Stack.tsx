@@ -9,7 +9,7 @@ type Level = "production" | "project" | "upcoming";
 const levelStyles: Record<Level, string> = {
   production: "border-emerald-300/20 bg-emerald-300/8 text-emerald-200",
   project: "border-ocean-light/20 bg-ocean-light/8 text-ocean-light",
-  upcoming: "border-white/12 bg-white/5 text-white/55",
+  upcoming: "border-violet-300/30 bg-violet-400/10 text-violet-300 shadow-[0_0_10px_rgba(167,139,250,0.1)]",
 };
 
 const levelIcons: Record<Level, typeof BadgeCheck> = {
