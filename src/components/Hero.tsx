@@ -83,6 +83,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
+           key={language}
            initial="hidden"
            whileInView="visible"
            viewport={{ once: true }}

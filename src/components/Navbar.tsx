@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
-import { BriefcaseBusiness, Menu, X } from "lucide-react";
+import { BriefcaseBusiness, Menu, X, Terminal as TerminalIcon } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
 
-export function Navbar() {
+export function Navbar({ onTerminalClick }: { onTerminalClick: () => void }) {
   const { scrollY, scrollYProgress } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -110,6 +110,15 @@ export function Navbar() {
         </div>
 
         <div className="hidden xl:flex flex-1 justify-end items-center gap-6">
+          <button
+            onClick={onTerminalClick}
+            className="flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-full text-[9px] font-bold tracking-widest bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-ocean-light/30 transition-all group"
+            title="Open Terminal"
+            aria-label="Open terminal"
+          >
+            <TerminalIcon className="w-3 h-3 text-white/40 group-hover:text-ocean-light transition-colors" />
+            <span className="text-white/40 group-hover:text-white/70">CLI</span>
+          </button>
           
           <button 
             onClick={() => setLanguage(language === "EN" ? "ES" : "EN")}
@@ -157,6 +166,14 @@ export function Navbar() {
               <span className={language === "EN" ? "text-ocean-light" : "text-white/40"}>EN</span>
               <span className="w-px h-3 bg-white/20" />
               <span className={language === "ES" ? "text-ocean-light" : "text-white/40"}>ES</span>
+            </button>
+            <button
+              onClick={onTerminalClick}
+              className="interactive flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-full text-[9px] font-bold tracking-widest bg-white/5"
+              aria-label="Open terminal"
+            >
+              <TerminalIcon className="w-3 h-3 text-ocean-light" />
+              <span className="text-white/70">CLI</span>
             </button>
             <button
               onClick={() => goToSection("#projects", "projects")}

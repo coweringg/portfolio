@@ -212,6 +212,26 @@ export const t = {
       surface: "SURFACE",
       depths: "DEPTHS",
     },
+    terminal: {
+      welcome: "GONZALO_TERMINAL v1.0.0",
+      help_hint: "Type 'help' to see available commands.",
+      ready: "Ready for input",
+      session: "session active",
+      help: {
+        help: "Show this help menu",
+        whoami: "About Gonzalo",
+        ls: "List featured projects",
+        cat: "View technical stack",
+        clear: "Clear terminal history",
+        hire: "The special command",
+        exit: "Close the terminal",
+      },
+      hire: {
+        protocol: "Protocol: HIRE_SQUAD",
+        unlocked: "Gonzalo's expertise is now at your disposal. Architectural resilience and product ownership, unlocked.",
+        cta: "START PROJECT",
+      }
+    },
   },
   ES: {
     nav: {
@@ -425,6 +445,26 @@ export const t = {
     sidebars: {
       surface: "SUPERFICIE",
       depths: "PROFUNDIDAD",
+    },
+    terminal: {
+      welcome: "GONZALO_TERMINAL v1.0.0",
+      help_hint: "Escribí 'help' para ver los comandos disponibles.",
+      ready: "Listo para comando",
+      session: "sesión activa",
+      help: {
+        help: "Mostrar este menú de ayuda",
+        whoami: "Sobre Gonzalo",
+        ls: "Listar proyectos destacados",
+        cat: "Ver stack tecnológico",
+        clear: "Limpiar el historial",
+        hire: "El comando especial",
+        exit: "Cerrar la terminal",
+      },
+      hire: {
+        protocol: "Protocolo: HIRE_SQUAD",
+        unlocked: "La experiencia de Gonzalo ahora está a tu disposición. Resiliencia arquitectónica y ownership de producto, desbloqueados.",
+        cta: "EMPEZAR PROYECTO",
+      }
     },
   },
 };
