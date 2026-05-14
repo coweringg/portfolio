@@ -158,8 +158,10 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
   const mouseY = useMotionValue(0);
   const mouseXSpring = useSpring(mouseX, { stiffness: 150, damping: 20 });
   const mouseYSpring = useSpring(mouseY, { stiffness: 150, damping: 20 });
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
+  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -185,6 +187,18 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       >
         <ProjectVisual project={project} />
+        
+        {/* Dynamic Glare Effect */}
+        <motion.div 
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{
+            background: useTransform(
+              [glareX, glareY],
+              ([x, y]) => `radial-gradient(circle at ${x} ${y}, rgba(255,255,255,0.12) 0%, transparent 60%)`
+            )
+          }}
+        />
+
         <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-slate-950/76 to-transparent z-10 pointer-events-none transform-[translateZ(30px)]" />
       </motion.div>
 
@@ -303,7 +317,7 @@ export function Projects() {
           </p>
         </div>
 
-        {tp.list.map((project: Project, idx: number) => (
+        {(tp.list as Project[]).map((project: Project, idx: number) => (
           <ProjectCard key={project.title} project={project} index={idx} languageDict={tp} />
         ))}
       </div>

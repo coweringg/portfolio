@@ -38,8 +38,21 @@ export function Background() {
 
   const lightRaysOpacity = useTransform(scrollY, [0, 500], [0.35, 0]);
 
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth) - 0.5,
+        y: (e.clientY / window.innerHeight) - 0.5,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const particles = useMemo(() => {
-    return Array.from({ length: 18 }).map((_, i) => ({
+    return Array.from({ length: 22 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -47,6 +60,7 @@ export function Background() {
       blur: Math.random() * 2 + 1,
       duration: Math.random() * 20 + 10,
       delay: Math.random() * 5,
+      speed: Math.random() * 20 + 10,
     }));
   }, []);
 
@@ -101,23 +115,28 @@ export function Background() {
         {particles.map((p) => (
           <motion.div
             key={p.id}
-            className="absolute rounded-full bg-white/22"
+            className="absolute rounded-full bg-white/20"
+            animate={{
+              x: [
+                `${p.x}%`, 
+                `${p.x + (mousePos.x * p.speed)}%`
+              ],
+              y: [
+                `${p.y}%`, 
+                `${p.y + (mousePos.y * p.speed)}%`
+              ],
+              opacity: [0.1, 0.4, 0.1],
+            }}
             style={{
               width: p.size,
               height: p.size,
-              left: `${p.x}%`,
-              top: `${p.y}%`,
               filter: `blur(${p.blur}px)`,
             }}
-            animate={{
-              y: ["0%", "-50%", "0%"],
-              x: ["0%", "20%", "0%"],
-              opacity: [0.1, 0.6, 0.1],
-            }}
             transition={{
-              duration: p.duration,
+              duration: 2,
               repeat: Infinity,
-              ease: "linear",
+              repeatType: "reverse",
+              ease: "easeInOut",
               delay: p.delay,
             }}
           />
