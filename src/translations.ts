@@ -16,7 +16,7 @@ export const t = {
       role: "Full Stack",
       developer: "Developer",
       intro:
-        "Full Stack Developer focused on building complete web applications, from modern interfaces to APIs and backend logic, using React, TypeScript, Node.js, and Java. I build polished interfaces, reliable APIs and product-focused workflows, combining real production experience with independent full-stack projects.",
+        "Full Stack Developer focused on building complete web applications, from modern interfaces to APIs and backend logic, using React, Next.js, TypeScript, Node.js, and Java. I build polished interfaces, reliable APIs and product-focused workflows, combining real production experience with independent full-stack projects.",
       pills: {
         openTop: "Open to",
         openBot: "Remote roles",
@@ -317,7 +317,7 @@ export const t = {
       role: "Desarrollador",
       developer: "Full Stack",
       intro:
-        "Full Stack Developer enfocado en construir aplicaciones web completas, desde interfaces modernas hasta APIs y lógica backend, usando React, TypeScript, Node.js y Java. Construyo interfaces pulidas, APIs confiables y flujos orientados a producto, combinando experiencia real en producción con proyectos full-stack independientes.",
+        "Full Stack Developer enfocado en construir aplicaciones web completas, desde interfaces modernas hasta APIs y lógica backend, usando React, Next.js, TypeScript, Node.js y Java. Construyo interfaces pulidas, APIs confiables y flujos orientados a producto, combinando experiencia real en producción con proyectos full-stack independientes.",
       pills: {
         openTop: "Abierto a",
         openBot: "Roles remotos",
