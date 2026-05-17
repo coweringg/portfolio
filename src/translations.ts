@@ -20,15 +20,15 @@ export const t = {
       pills: {
         openTop: "Open to",
         openBot: "Remote roles",
-        production: "Production Systems Experience",
+        production: "Production Experience",
         legaltech: "Full-Stack Product Builder",
-        stkTop: "Clean Architecture · Strategy",
+        stkTop: "Clean Systems · Strategy",
         stkBot: "Full-Stack Ownership",
       },
       proof: [
-        { value: "Standard", label: "Production-Ready Systems / Reliable APIs" },
+        { value: "Standard", label: "Maintainable Systems / Reliable APIs" },
         { value: "Solutions", label: "Full Stack Developer / End-to-End Product Building" },
-        { value: "Remote", label: "Async-Native / Global Collaboration & Remote Excellence" },
+        { value: "Remote", label: "Async Communication / Remote Collaboration" },
       ],
       buttons: {
         viewProjects: "View Selected Work",
@@ -46,7 +46,7 @@ export const t = {
       title2: "Product",
       title3: "To Production",
       p1:
-        "I'm Gonzalo, a Full Stack Developer focused on bridging the gap between product vision and technical reality. I build systems that don't just work, but scale, caring about everything from robust APIs to the micro-interactions that define the user experience.",
+        "I'm Gonzalo, a Full Stack Developer focused on bridging the gap between product vision and technical reality. I build systems that don't just work, but scale, caring about everything from reliable APIs to the micro-interactions that define the user experience.",
       p2:
         "My approach is grounded in solid engineering: I don't just ship features, I optimize for the full software development lifecycle. Whether it's building reliable backends or crafting high-performance frontends, my goal is to deliver maintainable, production-minded code that drives business value.",
       focusTitle: "Currently focused on",
@@ -56,8 +56,8 @@ export const t = {
           text: "Building systems that solve real-world problems with scalability and maintainability in mind.",
         },
         {
-          title: "AI & Data Strategy",
-          text: "Integrating AI to remove business friction, from intelligent document flows to automated summaries.",
+          title: "AI Workflows",
+          text: "Integrating AI into practical product flows, from intelligent document handling to automated summaries.",
         },
         {
           title: "Technical Ownership",
@@ -66,7 +66,7 @@ export const t = {
       ],
       items: [
         { title: "Full Ownership", text: "End-to-end responsibility" },
-        { title: "Production Experience", text: "Real-world ready solutions" },
+        { title: "Production Experience", text: "Maintainable, product-ready solutions" },
         { title: "Edge", text: "Frontend polish + backend logic" },
         { title: "Looking for", text: "High-impact product teams" },
       ],
@@ -76,7 +76,7 @@ export const t = {
       title2: "Capabilities",
       subtitle: "Tooling selected for reliability, speed, and long-term maintainability.",
       levels: {
-        production: "Production",
+        production: "Professional",
         project: "Project",
         upcoming: "Advanced",
       },
@@ -132,7 +132,7 @@ export const t = {
           title: "LawCaseAI",
           subtitle: "Solo Full-Stack Developer",
           description:
-            "A comprehensive AI-driven legal platform built solo from scratch. Handles the full software lifecycle: from secure document processing and case summarization to an intelligent attorney-review assistant.",
+            "A comprehensive AI-driven legal platform built solo from scratch. Covers the main full-stack flows: secure document processing, case summarization, and an intelligent attorney-review assistant.",
           tech: ["React", "Next.js", "TypeScript", "Tailwind", "OpenRouter"],
           visual: "legal",
           align: "left",
@@ -148,25 +148,25 @@ export const t = {
             "Payments and SaaS flow: Paddle integration supports subscription checkout and webhook-based payment flows."
           ],
           outcome: "A public full-stack LegalTech project demonstrating document upload flows, AI-powered summaries, secure storage, authentication, and product-oriented UX.",
-          proof: ["Technical notes", "Private walkthrough", "Solo deployment"],
+          proof: ["Technical notes", "Public demo", "Solo deployment"],
           link: "https://lawcaseai-gamma.vercel.app/",
           github: "https://github.com/coweringg/LawCaseAI",
         },
         {
           title: "Paideia",
-          subtitle: "Venture Prototype · Full-Stack Ownership",
+          subtitle: "Academic Marketplace Prototype · Full-Stack Ownership",
           description:
             "A complex marketplace prototype featuring credit-based class purchases and teacher redemption flows. Built both frontend and backend to handle transactional integrity.",
-          tech: ["Node.js", "Express", "React", "PostgreSQL", "Stripe"],
+          tech: ["Node.js", "Express", "React", "MySQL", "Prisma"],
           visual: "education",
           align: "right",
-          status: "Lead Full-Stack Developer",
+          status: "Full-Stack Developer",
           problem: "Education marketplaces need clear value exchange between students, teachers and payments.",
-          role: "Lead Full-Stack Developer: Owned the marketplace model and the core transaction logic from database to UI.",
+          role: "Full-Stack Developer: Owned the marketplace model and core transaction logic from database to UI.",
           decisions: [
-            "Monetization Architecture: Designed and modeled a credit-based transactional flow to manage class purchases between students and teachers.",
-            "Decoupled Backend APIs: Developed modular RESTful endpoints in Node.js/Express, ensuring clean separation of concerns and database scalability.",
-            "Financial Integrity: Integrated secure payment flows with Stripe to handle teacher payout requests and credit redemption logic safely."
+            "Credit-based marketplace model: Designed a transactional flow for class purchases, teacher balances and redemption logic.",
+            "Decoupled backend APIs: Developed modular REST endpoints in Node.js/Express, keeping frontend flows separated from backend business logic.",
+            "Database modeling: Structured student, teacher, class and credit entities using MySQL and Prisma."
           ],
           outcome: "Delivered a fully functional marketplace prototype with a clear path to monetization.",
           proof: ["Technical walkthrough", "Credit flow logic", "Database architecture"],
@@ -187,25 +187,25 @@ export const t = {
       title1: "Professional",
       title2: "Trajectory",
       date: "May 2024 - November 2024",
-      role: "Core Contributor & Full-Stack Developer",
-      company: "@ NocNoc · High-Scale Cross-Border E-commerce",
+      role: "Full Stack Developer Intern",
+      company: "@ NocNoc · Cross-Border E-commerce",
       bullets: [
-        "Developed and maintained core features in a high-scale production environment (110+ employees).",
-        "Collaborated with cross-functional product teams to deliver production-grade modules using Java and TypeScript.",
-        "Operated within high-velocity delivery cycles, ensuring code quality through rigorous peer reviews and agile best practices.",
-        "Proactively resolved complex technical incidents, maintaining system stability and performance.",
+        "Implemented user-facing features and backend business logic in a professional production environment.",
+        "Collaborated with product and engineering teams to deliver Java and TypeScript changes through agile workflows.",
+        "Participated in code reviews, standups, debugging and production delivery processes.",
+        "Investigated and resolved technical issues under time constraints, helping maintain delivery flow.",
       ],
     },
     contact: {
-      pill: "Open to high-impact product teams & complex challenges",
+      pill: "Open to product teams & full-stack challenges",
       title1: "Let's build",
-      title2: "the next big thing.",
+      title2: "useful software.",
       p:
-        "Ready to tackle your most complex technical challenges with reliable APIs, clean architectures, and product ownership.",
+        "Ready to collaborate on real products with reliable APIs, clean systems, and product ownership.",
       availability: [
-        { title: "Engagement", text: "High-impact & Async-Native" },
+        { title: "Engagement", text: "High-impact & remote-ready" },
         { title: "Ownership", text: "Full End-to-end Responsibility" },
-        { title: "Expertise", text: "Clean Architectures & Ownership" },
+        { title: "Focus", text: "Reliable APIs & Product Ownership" },
       ],
       emailLabel: "Email",
       cvLabel: "Download CV",
@@ -233,7 +233,7 @@ export const t = {
       },
       hire: {
         protocol: "Protocol: HIRE_SQUAD",
-        unlocked: "Gonzalo's expertise is now at your disposal. Clean architectures and product ownership, unlocked.",
+        unlocked: "Gonzalo is ready to build. Reliable APIs, clean systems and product ownership unlocked.",
         cta: "START PROJECT",
       }
     },
@@ -259,15 +259,15 @@ export const t = {
       pills: {
         openTop: "Abierto a",
         openBot: "Roles remotos",
-        production: "Sistemas en Producción",
-        legaltech: "Arquitecto de Productos Full-Stack",
-        stkTop: "Clean Architecture · Estrategia",
+        production: "Experiencia en Producción",
+        legaltech: "Product Builder Full-Stack",
+        stkTop: "Sistemas Limpios · Estrategia",
         stkBot: "Ownership Full-Stack",
       },
       proof: [
-        { value: "Estándar", label: "Sistemas para Producción / APIs Confiables" },
+        { value: "Estándar", label: "Sistemas Mantenibles / APIs Confiables" },
         { value: "Soluciones", label: "Full Stack Developer / Construcción de Productos End-to-End" },
-        { value: "Remoto", label: "Nativo Asincrónico / Excelencia en Colaboración Global" },
+        { value: "Remoto", label: "Comunicación Asíncrona / Colaboración Remota" },
       ],
       buttons: {
         viewProjects: "Ver Trabajo Seleccionado",
@@ -285,7 +285,7 @@ export const t = {
       title2: "Producto",
       title3: "A Producción",
       p1:
-        "Soy Gonzalo, Desarrollador Full Stack enfocado en cerrar la brecha entre la visión de producto y la realidad técnica. Construyo sistemas que no solo funcionan, sino que escalan, cuidando desde APIs robustas hasta las micro-interacciones que definen la experiencia del usuario.",
+        "Soy Gonzalo, Desarrollador Full Stack enfocado en cerrar la brecha entre la visión de producto y la realidad técnica. Construyo sistemas que no solo funcionan, sino que escalan, cuidando desde APIs confiables hasta las micro-interacciones que definen la experiencia del usuario.",
       p2:
         "Mi enfoque se basa en ingeniería sólida: no solo entrego funcionalidades, optimizo todo el ciclo de vida del software. Ya sea construyendo backends robustos o frontends de alto rendimiento, mi objetivo es entregar código mantenible y pensado para producción que genere valor real de negocio.",
       focusTitle: "Actualmente enfocado en",
@@ -295,8 +295,8 @@ export const t = {
           text: "Construcción de sistemas que resuelven problemas reales pensando en escalabilidad y mantenimiento.",
         },
         {
-          title: "Estrategia de IA y Datos",
-          text: "Integrando IA para eliminar fricción de negocio, desde flujos inteligentes de documentos hasta resúmenes automatizados.",
+          title: "Flujos con IA",
+          text: "Integrando IA en flujos reales de producto, desde manejo inteligente de documentos hasta resúmenes automatizados.",
         },
         {
           title: "Ownership Técnico",
@@ -305,7 +305,7 @@ export const t = {
       ],
       items: [
         { title: "Full Ownership", text: "Responsabilidad de punta a punta" },
-        { title: "Código Probado", text: "Soluciones listas para producción" },
+        { title: "Experiencia en Producción", text: "Código mantenible y orientado a producto" },
         { title: "Diferencial", text: "UI pulida + lógica backend" },
         { title: "Buscando", text: "Equipos de producto de alto impacto" },
       ],
@@ -315,7 +315,7 @@ export const t = {
       title2: "Técnicas",
       subtitle: "Herramientas seleccionadas por su confiabilidad, velocidad y mantenibilidad a largo plazo.",
       levels: {
-        production: "Producción",
+        production: "Profesional",
         project: "Proyecto",
         upcoming: "Avanzado",
       },
@@ -371,7 +371,7 @@ export const t = {
           title: "LawCaseAI",
           subtitle: "Solo Full-Stack Developer",
           description:
-            "Plataforma legal impulsada por IA construida íntegramente en solitario. Gestiona todo el ciclo de vida: desde el procesamiento seguro de documentos hasta un asistente inteligente para revisión de abogados.",
+            "Plataforma legal impulsada por IA construida íntegramente en solitario. Cubre los principales flujos full stack: procesamiento seguro de documentos, resúmenes de casos y un asistente inteligente para revisión legal.",
           tech: ["React", "Next.js", "TypeScript", "Tailwind", "OpenRouter"],
           visual: "legal",
           align: "left",
@@ -387,25 +387,25 @@ export const t = {
             "Pagos y flujo SaaS: La integración con Paddle permite checkout de suscripciones y flujos de pago basados en webhooks."
           ],
           outcome: "Un proyecto LegalTech full stack y público que demuestra flujos de carga de documentos, resúmenes con IA, almacenamiento seguro, autenticación y una experiencia de usuario orientada a producto.",
-          proof: ["Notas técnicas", "Walkthrough privado", "Despliegue independiente"],
+          proof: ["Notas técnicas", "Demo pública", "Despliegue independiente"],
           link: "https://lawcaseai-gamma.vercel.app/",
           github: "https://github.com/coweringg/LawCaseAI",
         },
         {
           title: "Paideia",
-          subtitle: "Venture Prototype · Full-Stack Ownership",
+          subtitle: "Prototipo académico de marketplace · Ownership Full-Stack",
           description:
             "Prototipo de marketplace complejo con compra de clases mediante créditos y flujos de cobro para profesores. Frontend y backend diseñados para integridad transaccional.",
-          tech: ["Node.js", "Express", "React", "PostgreSQL", "Stripe"],
+          tech: ["Node.js", "Express", "React", "MySQL", "Prisma"],
           visual: "education",
           align: "right",
-          status: "Lead Full-Stack Developer",
+          status: "Full-Stack Developer",
           problem: "Los marketplaces educativos necesitan un intercambio claro de valor entre estudiantes, profesores y pagos.",
-          role: "Lead Full-Stack Developer: Responsable del modelo de marketplace y la lógica transaccional desde la DB hasta la UI.",
+          role: "Full-Stack Developer: Responsable del modelo de marketplace y la lógica transaccional desde la base de datos hasta la UI.",
           decisions: [
-            "Arquitectura de monetización: Diseñé y modelé un flujo transaccional basado en créditos para gestionar compras de clases entre alumnos y profesores.",
-            "APIs desacopladas: Desarrollé endpoints RESTful modulares en Node.js/Express, asegurando separación de responsabilidades y escalabilidad.",
-            "Integridad financiera: Integré flujos de pago con Stripe para gestionar solicitudes de retiro de profesores y canje de créditos de forma segura."
+            "Modelo de marketplace basado en créditos: Diseñé un flujo transaccional para compras de clases, balances de profesores y lógica de canje.",
+            "APIs desacopladas: Desarrollé endpoints REST modulares en Node.js/Express, separando los flujos del frontend de la lógica de negocio del backend.",
+            "Modelado de base de datos: Estructuré entidades de estudiantes, profesores, clases y créditos usando MySQL y Prisma."
           ],
           outcome: "Entregué un prototipo funcional con una ruta clara hacia la monetización real.",
           proof: ["Walkthrough técnico", "Lógica de flujo de créditos", "Estructura de base de datos"],
@@ -426,25 +426,25 @@ export const t = {
       title1: "Trayectoria",
       title2: "Profesional",
       date: "Mayo 2024 - Noviembre 2024",
-      role: "Core Contributor & Full-Stack Developer",
-      company: "@ NocNoc · E-commerce Cross-Border de Alta Escala",
+      role: "Full Stack Developer Intern",
+      company: "@ NocNoc · E-commerce Cross-Border",
       bullets: [
-        "Desarrollo y mantenimiento de funcionalidades críticas en un entorno de producción de alta escala (+110 empleados).",
-        "Colaboración con equipos de producto cross-functional para entregar módulos de grado de producción usando Java y TypeScript.",
-        "Operación en ciclos de entrega de alta velocidad, asegurando la calidad del código mediante revisiones por pares y mejores prácticas ágiles.",
-        "Resolución proactiva de incidentes técnicos complejos, manteniendo la estabilidad y el rendimiento del sistema.",
+        "Implementé funcionalidades de cara al usuario y lógica backend en un entorno profesional de producción.",
+        "Colaboré con equipos de producto e ingeniería para entregar cambios en Java y TypeScript dentro de flujos ágiles.",
+        "Participé en code reviews, dailies, debugging y procesos de entrega a producción.",
+        "Investigué y resolví incidencias técnicas bajo tiempos ajustados, ayudando a mantener el flujo de entrega.",
       ],
     },
     contact: {
-      pill: "Abierto a equipos de producto de alto impacto",
+      pill: "Abierto a equipos de producto y desafíos full-stack",
       title1: "Construyamos",
-      title2: "el próximo gran producto.",
+      title2: "software útil.",
       p:
-        "Listo para enfrentar tus desafíos técnicos más complejos con APIs confiables, arquitecturas limpias y ownership de producto.",
+        "Listo para colaborar en productos reales con APIs confiables, sistemas limpios y ownership de producto.",
       availability: [
-        { title: "Interés", text: "Impacto & Nativo Asincrónico" },
+        { title: "Interés", text: "Impacto y trabajo remoto" },
         { title: "Ownership", text: "Responsabilidad de Punta a Punta" },
-        { title: "Especialidad", text: "Arquitecturas Limpias y Ownership" },
+        { title: "Foco", text: "APIs confiables y ownership de producto" },
       ],
       emailLabel: "Email",
       cvLabel: "Descargar CV",
@@ -472,7 +472,7 @@ export const t = {
       },
       hire: {
         protocol: "Protocolo: HIRE_SQUAD",
-        unlocked: "La experiencia de Gonzalo ahora está a tu disposición. Arquitecturas limpias y ownership de producto, desbloqueados.",
+        unlocked: "Gonzalo está listo para construir. APIs confiables, sistemas limpios y ownership de producto desbloqueados.",
         cta: "EMPEZAR PROYECTO",
       }
     },
