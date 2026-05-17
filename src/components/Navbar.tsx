@@ -82,7 +82,7 @@ export function Navbar({ onTerminalClick }: { onTerminalClick: () => void }) {
         backdropFilter: navBackdrop,
         backgroundColor: navBg,
       }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${isScrolled ? "border-white/10" : "border-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 xl:px-12 h-20 flex items-center justify-between relative">
         
@@ -227,7 +227,7 @@ export function Navbar({ onTerminalClick }: { onTerminalClick: () => void }) {
       )}
 
       <motion.div
-        className="absolute -bottom-px left-0 right-0 h-[2px] bg-ocean-glow shadow-[0_0_8px_#0ea5e9,0_0_12px_#38bdf8] z-50"
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-ocean-glow shadow-[0_0_8px_#0ea5e9,0_0_12px_#38bdf8] z-50"
         style={{ scaleX, transformOrigin: "0% 50%" }}
       />
     </motion.nav>

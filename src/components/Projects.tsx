@@ -33,6 +33,7 @@ type Project = {
   outcome: string;
   proof: string[];
   link?: string;
+  github?: string;
 };
 
 type ProjectsDict = typeof t.EN.projects;
@@ -188,7 +189,6 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
       >
         <ProjectVisual project={project} />
         
-        {/* Dynamic Glare Effect */}
         <motion.div 
           className="absolute inset-0 z-20 pointer-events-none"
           style={{
@@ -216,25 +216,39 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
           </p>
         </div>
 
-        {project.link ? (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="interactive inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-ocean-light/30 bg-ocean-light/10 text-ocean-light px-5 py-3 text-[10px] font-bold uppercase tracking-widest shadow-[0_10px_30px_rgba(56,189,248,0.15)] transition-all hover:bg-ocean-light hover:text-ocean-950 hover:scale-[1.02]"
-          >
-            {languageDict.demo}
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
-        ) : (
-          <a
-            href={`mailto:gonzalomendezdev@gmail.com?subject=${encodeURIComponent(`${project.title} walkthrough`)}`}
-            className="interactive inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-white/25 bg-white text-ocean-950 px-5 py-3 text-[10px] font-bold uppercase tracking-widest shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition-transform hover:scale-[1.02]"
-          >
-            {languageDict.walkthroughCta}
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
-        )}
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="interactive inline-flex items-center justify-center gap-2 rounded-lg border border-ocean-light/30 bg-ocean-light/10 text-ocean-light px-5 py-3 text-[10px] font-bold uppercase tracking-widest shadow-[0_10px_30px_rgba(56,189,248,0.15)] transition-all hover:bg-ocean-light hover:text-ocean-950 hover:scale-[1.02]"
+            >
+              {languageDict.demo}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="interactive inline-flex items-center justify-center gap-2 rounded-lg border border-white/12 bg-white/5 text-white/90 px-5 py-3 text-[10px] font-bold uppercase tracking-widest transition-all hover:bg-white hover:text-ocean-950 hover:scale-[1.02]"
+            >
+              {languageDict.code}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          )}
+          {!project.link && !project.github && (
+            <a
+              href={`mailto:gonzalomendezdev@gmail.com?subject=${encodeURIComponent(`${project.title} walkthrough`)}`}
+              className="interactive inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 bg-white text-ocean-950 px-5 py-3 text-[10px] font-bold uppercase tracking-widest shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition-transform hover:scale-[1.02]"
+            >
+              {languageDict.walkthroughCta}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          )}
+        </div>
 
         <div className="grid gap-3 w-full">
           <div className="evidence-panel p-3.5 sm:p-4">
@@ -266,13 +280,29 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
             <div className="text-[10px] uppercase tracking-[0.22em] font-bold text-ocean-light mb-3">
               {languageDict.decisions}
             </div>
-            <ul className="space-y-2 text-[13px] sm:text-sm leading-relaxed text-white/70">
-              {project.decisions.map((decision) => (
-                <li key={decision} className="flex gap-2">
-                  <ArrowRight className="w-3.5 h-3.5 text-ocean-light mt-1 shrink-0" />
-                  <span>{decision}</span>
-                </li>
-              ))}
+            <ul className="space-y-3.5 text-[13px] sm:text-sm leading-relaxed text-white/70">
+              {project.decisions.map((decision) => {
+                const colonIndex = decision.indexOf(":");
+                if (colonIndex !== -1) {
+                  const title = decision.substring(0, colonIndex);
+                  const description = decision.substring(colonIndex + 1);
+                  return (
+                    <li key={decision} className="flex gap-2.5 items-start">
+                      <ArrowRight className="w-3.5 h-3.5 text-ocean-light mt-1 shrink-0 animate-pulse" />
+                      <span>
+                        <strong className="text-white font-medium">{title}:</strong>
+                        {description}
+                      </span>
+                    </li>
+                  );
+                }
+                return (
+                  <li key={decision} className="flex gap-2.5 items-start">
+                    <ArrowRight className="w-3.5 h-3.5 text-ocean-light mt-1 shrink-0" />
+                    <span>{decision}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

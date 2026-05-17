@@ -8,6 +8,9 @@ import { NarratorWidget } from "./components/NarratorWidget";
 import { LanguageProvider } from "./context/LanguageContext";
 import { NarratorProvider } from "./context/NarratorContext";
 
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
+
 const About = lazy(() => import("./components/About").then(m => ({ default: m.About })));
 const Stack = lazy(() => import("./components/Stack").then(m => ({ default: m.Stack })));
 const Projects = lazy(() => import("./components/Projects").then(m => ({ default: m.Projects })));
@@ -17,6 +20,38 @@ const Terminal = lazy(() => import("./components/Terminal").then(m => ({ default
 
 export default function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+      lerp: 0.08,
+      wheelMultiplier: 0.8,
+    });
+    
+    let snapTimeout: NodeJS.Timeout;
+
+    lenis.on('scroll', (e: any) => {
+      clearTimeout(snapTimeout);
+      
+      snapTimeout = setTimeout(() => {
+        const sections = document.querySelectorAll('.section-divider');
+        for (const section of sections) {
+          const rect = section.getBoundingClientRect();
+          const distance = rect.bottom - 80;
+          
+          if (Math.abs(distance) > 0.5 && Math.abs(distance) <= 30) {
+            lenis.scrollTo(window.scrollY + distance, { duration: 0.6, lock: false, force: true });
+            break;
+          }
+        }
+      }, 200);
+    });
+
+    return () => {
+      clearTimeout(snapTimeout);
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

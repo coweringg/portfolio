@@ -21,7 +21,6 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
     background-color: var(--color-ocean-950);
     color: white;
   }
@@ -60,7 +59,6 @@
   }
 
   .section-divider {
-    border-top-width: 1px;
     border-bottom-width: 1px;
     border-color: rgba(255, 255, 255, 0.08);
     scroll-margin-top: 5rem;
