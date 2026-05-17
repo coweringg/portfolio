@@ -5,7 +5,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { t } from "../translations";
 import { useSectionNarrator } from "../hooks/useSectionNarrator";
 
-export function Hero() {
+export function Hero({ onOpenLawCaseModal }: { onOpenLawCaseModal?: () => void }) {
   const { language } = useLanguage();
   const th = t[language].hero;
   useSectionNarrator("hero", "home");
@@ -241,17 +241,19 @@ export function Hero() {
             ></motion.div>
           </div>
           
-          <a 
-            href="#projects" 
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+          <button
+            onClick={() => {
+              if (onOpenLawCaseModal) {
+                onOpenLawCaseModal();
+              } else {
+                document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+              }
             }}
-            className="flex items-center justify-between text-[8px] text-white/50 hover:text-white uppercase tracking-[0.2em] font-bold group transition-colors w-full"
+            className="flex items-center justify-between text-[8px] text-white/50 hover:text-white uppercase tracking-[0.2em] font-bold group transition-colors w-full cursor-pointer bg-transparent border-none p-0"
           >
             {th.spotlight.dive}
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-ocean-light" />
-          </a>
+          </button>
         </div>
       </motion.div>
 

@@ -153,7 +153,7 @@ function ProjectVisual({ project }: { project: Project }) {
   );
 }
 
-function ProjectCard({ project, index, languageDict }: { project: Project; index: number; key?: string; languageDict: ProjectsDict }) {
+function ProjectCard({ project, index, languageDict, onOpenLawCaseModal }: { project: Project; index: number; key?: string; languageDict: ProjectsDict; onOpenLawCaseModal?: () => void }) {
   const isLeft = project.align === "left";
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -217,6 +217,15 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          {project.title === "LawCaseAI" && onOpenLawCaseModal && (
+            <button
+              onClick={onOpenLawCaseModal}
+              className="interactive inline-flex items-center justify-center gap-2 rounded-lg bg-ocean-light text-ocean-950 px-6 py-3 text-[10px] font-bold uppercase tracking-widest shadow-[0_0_25px_rgba(56,189,248,0.4)] transition-all hover:bg-ocean-glow hover:scale-[1.02] cursor-pointer border-none"
+            >
+              {languageDict.caseStudy}
+              <BookOpen className="w-3.5 h-3.5" />
+            </button>
+          )}
           {project.link && (
             <a
               href={project.link}
@@ -329,7 +338,7 @@ function ProjectCard({ project, index, languageDict }: { project: Project; index
   );
 }
 
-export function Projects() {
+export function Projects({ onOpenLawCaseModal }: { onOpenLawCaseModal?: () => void }) {
   const { language } = useLanguage();
   const tp = t[language].projects;
   useSectionNarrator("projects");
@@ -348,7 +357,7 @@ export function Projects() {
         </div>
 
         {(tp.list as Project[]).map((project: Project, idx: number) => (
-          <ProjectCard key={project.title} project={project} index={idx} languageDict={tp} />
+          <ProjectCard key={project.title} project={project} index={idx} languageDict={tp} onOpenLawCaseModal={onOpenLawCaseModal} />
         ))}
       </div>
     </section>

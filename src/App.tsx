@@ -17,9 +17,11 @@ const Projects = lazy(() => import("./components/Projects").then(m => ({ default
 const Experience = lazy(() => import("./components/Experience").then(m => ({ default: m.Experience })));
 const Contact = lazy(() => import("./components/Contact").then(m => ({ default: m.Contact })));
 const Terminal = lazy(() => import("./components/Terminal").then(m => ({ default: m.Terminal })));
+const CaseStudyModal = lazy(() => import("./components/CaseStudyModal").then(m => ({ default: m.CaseStudyModal })));
 
 export default function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isLawCaseModalOpen, setIsLawCaseModalOpen] = useState(false);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -86,14 +88,20 @@ export default function App() {
           
           <Suspense fallback={null}>
             <Terminal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+            <CaseStudyModal
+              isOpen={isLawCaseModalOpen}
+              onClose={() => setIsLawCaseModalOpen(false)}
+              demoUrl="https://lawcaseai-gamma.vercel.app/"
+              githubUrl="https://github.com/coweringg/LawCaseAI"
+            />
           </Suspense>
           
           <main>
-            <Hero />
+            <Hero onOpenLawCaseModal={() => setIsLawCaseModalOpen(true)} />
             <Suspense fallback={<div className="h-screen flex items-center justify-center text-white/20 text-xs tracking-widest uppercase">Cargando...</div>}>
               <About />
               <Stack />
-              <Projects />
+              <Projects onOpenLawCaseModal={() => setIsLawCaseModalOpen(true)} />
               <Experience />
               <Contact />
             </Suspense>

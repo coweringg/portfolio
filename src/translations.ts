@@ -130,15 +130,15 @@ export const t = {
       list: [
         {
           title: "LawCaseAI",
-          subtitle: "Solo Full-Stack Developer",
+          subtitle: "Sole Full-Stack Developer",
           description:
-            "A comprehensive AI-driven legal platform built solo from scratch. Covers the main full-stack flows: secure document processing, case summarization, and an intelligent attorney-review assistant.",
+            "A comprehensive AI-driven legal platform built independently from scratch. Covers the main full-stack flows: secure document processing, case summarization, and an intelligent attorney-review assistant.",
           tech: ["React", "Next.js", "TypeScript", "Tailwind", "OpenRouter"],
           visual: "legal",
           align: "left",
-          status: "Solo Build · Public project - walkthrough available",
+          status: "Sole Build · Public project - walkthrough available",
           problem: "Attorneys need to review dense legal documents faster without losing context or traceability.",
-          role: "Solo Full-Stack Developer: Designed and built the entire ecosystem, including the AI processing pipeline and secure document infrastructure.",
+          role: "Sole Full-Stack Developer: Designed and built the entire ecosystem, including the AI processing pipeline and secure document infrastructure.",
           decisions: [
             "Secure document flow: Files are handled through controlled backend flows and stored with Cloudflare R2, keeping file storage separate from application data.",
             "AI document workflows: Custom summary and context-specific chat flows powered by the OpenRouter API turn dense legal files into structured, usable information.",
@@ -148,7 +148,7 @@ export const t = {
             "Payments and SaaS flow: Paddle integration supports subscription checkout and webhook-based payment flows."
           ],
           outcome: "A public full-stack LegalTech project demonstrating document upload flows, AI-powered summaries, secure storage, authentication, and product-oriented UX.",
-          proof: ["Technical notes", "Public demo", "Solo deployment"],
+          proof: ["Technical notes", "Public demo", "Independent deployment"],
           link: "https://lawcaseai-gamma.vercel.app/",
           github: "https://github.com/coweringg/LawCaseAI",
         },
@@ -235,6 +235,68 @@ export const t = {
         protocol: "Protocol: HIRE_SQUAD",
         unlocked: "Gonzalo is ready to build. Reliable APIs, clean systems and product ownership unlocked.",
         cta: "START PROJECT",
+      }
+    },
+    caseStudyModal: {
+      title: "LawCaseAI",
+      subtitle: "Technical Case Study",
+      problem: {
+        title: "Problem",
+        content: "Attorneys need to review legal documents faster while keeping context, traceability and control over case information."
+      },
+      solution: {
+        title: "Solution",
+        content: "LawCaseAI allows users to upload legal documents, generate AI-powered summaries, review case context and chat with the uploaded file."
+      },
+      role: {
+        title: "My role",
+        content: "Sole Full-Stack Developer responsible for frontend, backend, database, authentication, file storage, AI workflows, payments and deployment."
+      },
+      architecture: {
+        title: "Architecture",
+        items: [
+          { label: "Frontend", val: "Next.js frontend" },
+          { label: "Backend", val: "Express/Node.js backend" },
+          { label: "Database", val: "MongoDB database" },
+          { label: "Storage", val: "Cloudflare R2 storage" },
+          { label: "AI Workflows", val: "OpenRouter API for AI workflows" },
+          { label: "Auth", val: "JWT authentication" },
+          { label: "Payments", val: "Paddle payments" }
+        ]
+      },
+      decisions: {
+        title: "Technical decisions",
+        items: [
+          "Separate frontend and backend responsibilities",
+          "Store files outside the database using object storage",
+          "Validate incoming data before business logic",
+          "Protect private routes with JWT",
+          "Use server-state management with TanStack React Query"
+        ]
+      },
+      security: {
+        title: "Security and privacy",
+        items: [
+          "Protected routes",
+          "File validation",
+          "Environment variables for secrets",
+          "No hardcoded API keys",
+          "Helmet and validation middleware"
+        ]
+      },
+      learnings: {
+        title: "What I learned",
+        items: [
+          "Building complete full-stack flows",
+          "Integrating AI into product workflows",
+          "Handling file storage, authentication and payments",
+          "Thinking about reliability, privacy and traceability"
+        ]
+      },
+      buttons: {
+        demo: "Live Demo",
+        github: "Code",
+        close: "Close"
       }
     },
   },
@@ -369,15 +431,15 @@ export const t = {
       list: [
         {
           title: "LawCaseAI",
-          subtitle: "Solo Full-Stack Developer",
+          subtitle: "Desarrollador Full-Stack (Independiente)",
           description:
             "Plataforma legal impulsada por IA construida íntegramente en solitario. Cubre los principales flujos full stack: procesamiento seguro de documentos, resúmenes de casos y un asistente inteligente para revisión legal.",
           tech: ["React", "Next.js", "TypeScript", "Tailwind", "OpenRouter"],
           visual: "legal",
           align: "left",
-          status: "Construcción Solo · Proyecto público - walkthrough disponible",
+          status: "Desarrollo Individual · Proyecto público - walkthrough disponible",
           problem: "Los abogados necesitan revisar documentos densos más rápido sin perder contexto ni trazabilidad.",
-          role: "Solo Full-Stack Developer: Diseñé y construí todo el ecosistema, incluyendo el pipeline de procesamiento de IA y la infraestructura segura de documentos.",
+          role: "Desarrollador Full-Stack (Independiente): Diseñé y construí todo el ecosistema de inicio a fin, incluyendo el pipeline de procesamiento de IA y la infraestructura segura de documentos.",
           decisions: [
             "Flujo seguro de documentos: Los archivos se manejan mediante flujos controlados en el backend y se almacenan con Cloudflare R2, separando el almacenamiento de archivos de los datos de la aplicación.",
             "Workflows de documentos con IA: Flujos personalizados de resumen y chat contextual utilizando la API de OpenRouter convierten archivos legales densos en información estructurada y útil.",
@@ -474,6 +536,68 @@ export const t = {
         protocol: "Protocolo: HIRE_SQUAD",
         unlocked: "Gonzalo está listo para construir. APIs confiables, sistemas limpios y ownership de producto desbloqueados.",
         cta: "EMPEZAR PROYECTO",
+      }
+    },
+    caseStudyModal: {
+      title: "LawCaseAI",
+      subtitle: "Caso de Estudio Técnico",
+      problem: {
+        title: "Problema",
+        content: "Los abogados necesitan revisar documentos legales más rápido manteniendo el contexto, la trazabilidad y el control sobre la información del caso."
+      },
+      solution: {
+        title: "Solución",
+        content: "LawCaseAI permite a los usuarios subir documentos legales, generar resúmenes con IA, revisar el contexto de los casos y chatear con el archivo subido."
+      },
+      role: {
+        title: "Mi rol",
+        content: "Desarrollador Full-Stack en solitario responsable de frontend, backend, base de datos, autenticación, almacenamiento de archivos, flujos de IA, pagos y despliegue."
+      },
+      architecture: {
+        title: "Arquitectura",
+        items: [
+          { label: "Frontend", val: "Frontend en Next.js" },
+          { label: "Backend", val: "Backend en Express/Node.js" },
+          { label: "Base de Datos", val: "Base de datos en MongoDB" },
+          { label: "Almacenamiento", val: "Almacenamiento en Cloudflare R2" },
+          { label: "Flujos IA", val: "Flujos de IA con API de OpenRouter" },
+          { label: "Autenticación", val: "Autenticación con JWT" },
+          { label: "Pagos", val: "Pagos con Paddle" }
+        ]
+      },
+      decisions: {
+        title: "Decisiones técnicas",
+        items: [
+          "Separar responsabilidades entre frontend y backend",
+          "Almacenar archivos fuera de la base de datos usando object storage",
+          "Validar datos entrantes antes de la lógica de negocio",
+          "Proteger rutas privadas mediante JWT",
+          "Manejar el estado del servidor usando TanStack React Query"
+        ]
+      },
+      security: {
+        title: "Seguridad y privacidad",
+        items: [
+          "Rutas protegidas",
+          "Validación de archivos",
+          "Variables de entorno para secretos",
+          "Sin claves de API en el código fuente",
+          "Helmet y middleware de validación"
+        ]
+      },
+      learnings: {
+        title: "Qué aprendí",
+        items: [
+          "Construir flujos completos full-stack de inicio a fin",
+          "Integrar IA dentro de flujos de trabajo de productos",
+          "Manejar almacenamiento de archivos, autenticación y pagos",
+          "Pensar en confiabilidad, privacidad y trazabilidad"
+        ]
+      },
+      buttons: {
+        demo: "Ver Demo",
+        github: "Código",
+        close: "Cerrar"
       }
     },
   },

@@ -78,7 +78,7 @@ export function Cursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-100 mix-blend-screen shadow-[0_0_10px_rgba(56,189,248,0.3)] border border-ocean-light/50 will-change-transform"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-9999 mix-blend-screen shadow-[0_0_10px_rgba(56,189,248,0.3)] border border-ocean-light/50 will-change-transform"
         style={{
           x: smoothX,
           y: smoothY,
@@ -93,7 +93,7 @@ export function Cursor() {
         transition={{ duration: 0.2 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-ocean-glow rounded-full pointer-events-none z-100 mix-blend-screen shadow-[0_0_8px_#0ea5e9] will-change-transform"
+        className="fixed top-0 left-0 w-2 h-2 bg-ocean-glow rounded-full pointer-events-none z-9999 mix-blend-screen shadow-[0_0_8px_#0ea5e9] will-change-transform"
         style={{
           x: cursorX,
           y: cursorY,
@@ -107,7 +107,7 @@ export function Cursor() {
         transition={{ duration: 0.15 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-64 h-64 bg-ocean-light/10 rounded-full blur-3xl pointer-events-none z-90 will-change-transform"
+        className="fixed top-0 left-0 w-64 h-64 bg-ocean-light/10 rounded-full blur-3xl pointer-events-none z-9990 will-change-transform"
         style={{
           x: glowX,
           y: glowY,
