@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   X,
   ArrowRight,
-  ExternalLink,
-  Github,
   Route,
   CheckCircle2,
   Layers,
@@ -25,11 +23,9 @@ import { t } from "../translations";
 interface CaseStudyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  demoUrl?: string;
-  githubUrl?: string;
 }
 
-export function CaseStudyModal({ isOpen, onClose, demoUrl, githubUrl }: CaseStudyModalProps) {
+export function CaseStudyModal({ isOpen, onClose }: CaseStudyModalProps) {
   const { language } = useLanguage();
   const tm = t[language].caseStudyModal;
 
@@ -222,40 +218,6 @@ export function CaseStudyModal({ isOpen, onClose, demoUrl, githubUrl }: CaseStud
                   </div>
                 </div>
               </div>
-
-            </div>
-
-            <div className="px-6 py-4 border-t border-white/10 bg-white/5 flex flex-wrap items-center justify-between gap-4 shrink-0">
-              <div className="flex flex-wrap items-center gap-3">
-                {demoUrl && (
-                  <a
-                    href={demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-ocean-light text-ocean-950 text-xs uppercase tracking-widest font-bold hover:bg-ocean-glow hover:scale-105 transition-all shadow-[0_0_20px_rgba(56,189,248,0.4)]"
-                  >
-                    {tm.buttons.demo}
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
-                {githubUrl && (
-                  <a
-                    href={githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/20 bg-white/10 text-white text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-ocean-950 hover:scale-105 transition-all"
-                  >
-                    {tm.buttons.github}
-                    <Github className="w-3.5 h-3.5" />
-                  </a>
-                )}
-              </div>
-              <button
-                onClick={onClose}
-                className="px-5 py-2.5 rounded-lg border border-white/10 bg-transparent text-white/60 hover:text-white hover:bg-white/5 text-xs uppercase tracking-widest font-bold transition-all"
-              >
-                {tm.buttons.close}
-              </button>
             </div>
           </motion.div>
         </motion.div>

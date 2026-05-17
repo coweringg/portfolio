@@ -91,8 +91,6 @@ export default function App() {
             <CaseStudyModal
               isOpen={isLawCaseModalOpen}
               onClose={() => setIsLawCaseModalOpen(false)}
-              demoUrl="https://lawcaseai-gamma.vercel.app/"
-              githubUrl="https://github.com/coweringg/LawCaseAI"
             />
           </Suspense>
           
